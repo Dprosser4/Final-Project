@@ -113,7 +113,7 @@ export default function ProjectSearch() {
           <Form.Select value={assignedTo}
             onChange={(e) => setAssignedTo(e.target.value)} >
 
-            <option value="unassigned">Choose a Technician</option>
+            <option >Choose a Technician</option>
             {techs.map((tech) => (<option key={tech.userId} value={tech.userId} >{`${tech.firstName} ${tech.lastName}`}</option>))}
 
           </Form.Select>
@@ -128,7 +128,7 @@ export default function ProjectSearch() {
         <InputGroup className='mb-3' controlId="formStatus">
           <Form.Select value={projectStatus}
             onChange={(e) => setProjectStatus(e.target.value)} >
-
+            <option>Project Status</option>
             <option value='allprojects'>All Projects </option>
             <option value='unassigned'>Unassigned Projects </option>
             <option value='assigned'>Assigned Projects </option>
