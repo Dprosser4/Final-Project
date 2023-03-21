@@ -11,6 +11,7 @@ import CreateProject from './pages/create-project';
 import ProjectView from './pages/project-view';
 import TechProjectView from './pages/tech-project-view';
 import ManageUsers from './pages/manage-users';
+import ProjectSearch from './pages/project-search';
 import AddUser from './pages/add-user';
 
 export default function App() {
@@ -67,6 +68,9 @@ export default function App() {
     }
     if (path === 'newproject') {
       return <CreateProject />;
+    }
+    if (path === 'projectsearch') {
+      return <ProjectSearch />;
     }
     if (path === 'manageusers') {
       return <ManageUsers />;

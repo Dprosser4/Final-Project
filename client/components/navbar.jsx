@@ -27,6 +27,7 @@ export default function NavbarMain() {
                   <>
                     <Nav.Link href="#projects">Projects</Nav.Link>
                     <Nav.Link href="#newproject">Create Project</Nav.Link>
+                    <Nav.Link href="#projectsearch">Project Search</Nav.Link>
                     <Nav.Link href="#manageusers">Manage Users</Nav.Link>
                   </>
                 }
