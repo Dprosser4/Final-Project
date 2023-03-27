@@ -157,7 +157,7 @@ app.get('/api/projects', (req, res, next) => {
 });
 
 app.put('/api/projects/:projectId', (req, res, next) => {
-  let { poNumber, name, address, city, state, zipcode, notes, completed, assignedTo } = req.body;
+  let { poNumber, name, address, city, state, zipcode, notes, completed, assignedTo, completedDate } = req.body;
   const projectId = Number(req.params.projectId);
   if (!Number.isInteger(projectId) || projectId <= 0) {
     throw new ClientError(400, 'invalid projectId');
@@ -168,11 +168,11 @@ app.put('/api/projects/:projectId', (req, res, next) => {
   }
   const sql = `
     update "projects"
-    set "poNumber" = $2, "name" = $3, "address" = $4, "city" = $5, "state" = $6, "zipcode" = $7, "notes" = $8, "completed" = $9, "assignedTo" = $10
+    set "poNumber" = $2, "name" = $3, "address" = $4, "city" = $5, "state" = $6, "zipcode" = $7, "notes" = $8, "completed" = $9, "assignedTo" = $10, "dateCompleted" = $11
     where "projectId" = $1
     returning *
   `;
-  const params = [projectId, poNumber, name, address, city, state, zipcode, notes, completed, assignedTo];
+  const params = [projectId, poNumber, name, address, city, state, zipcode, notes, completed, assignedTo, completedDate];
 
   db.query(sql, params)
     .then((result) => {

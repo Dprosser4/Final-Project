@@ -29,6 +29,8 @@ CREATE TABLE "public"."projects" (
 	"state" TEXT NOT NULL,
 	"zipcode" TEXT NOT NULL,
 	"notes" TEXT DEFAULT '',
+  "dateScheduled" timestamp with time zone DEFAULT NULL,
+  "dateCompleted" timestamp with time zone DEFAULT NULL,
 	"completed" BOOLEAN NOT NULL DEFAULT FALSE,
 	"assignedTo" int,
 	"createdAt" timestamptz(6) not null default now(),

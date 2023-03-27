@@ -14,6 +14,7 @@ export default function TechUpdateForm({ project, onSave, onCancel }) {
   const [notes, setNotes] = useState(project.notes);
   const [completed, setCompleted] = useState(project.completed);
   let assignedTo = project.assignedTo;
+  let completedDate = null;
 
   const [show, setShow] = useState(false);
 
@@ -30,13 +31,14 @@ export default function TechUpdateForm({ project, onSave, onCancel }) {
     event.preventDefault();
     if (completed) {
       assignedTo = null;
+      completedDate = new Date();
     }
     const req = {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ poNumber, name, address, city, state, zipcode, notes, completed, assignedTo })
+      body: JSON.stringify({ poNumber, name, address, city, state, zipcode, notes, completed, assignedTo, completedDate })
     };
     fetch(`/api/projects/${project.projectId}`, req)
 
